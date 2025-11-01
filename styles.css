@@ -1,0 +1,46 @@
+:root {
+  --square-size: 100px;
+  --light: #f3f3f3;
+  --dark: #222222;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #eef2f5;
+  margin: 0;
+}
+
+.board {
+  display: flex;
+  flex-direction: column;
+  border: 6px solid #444;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.row {
+  display: flex;
+}
+
+.square {
+  width: var(--square-size);
+  height: var(--square-size);
+}
+
+/* Odd rows: dark/light pattern */
+.row:nth-child(odd) .square:nth-child(odd) {
+  background: var(--dark);
+}
+.row:nth-child(odd) .square:nth-child(even) {
+  background: var(--light);
+}
+
+/* Even rows: light/dark pattern */
+.row:nth-child(even) .square:nth-child(odd) {
+  background: var(--light);
+}
+.row:nth-child(even) .square:nth-child(even) {
+  background: var(--dark);
+}
